@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently --kill-others-on-fail \"npm run dev:backend\" \"npm run dev:client\" \"npm run open\"",
+    "dev": "concurrently --kill-others-on-fail \"npm run dev:backend\" \"npm run dev:client\" \"npm run open\"",
     "dev:backend": "npm run dev --prefix backend",
     "dev:client": "npm run dev --prefix client",
-    "open": "wait-on http://localhost:5173 && node open-client.js"
+    "open": "wait-on http://localhost:5173 && node open-client.js",
+    "build": "npm install --prefix client && npm run build --prefix client && rm -rf backend/public && cp -r client/dist backend/public",
+    "start": "npm install --prefix backend && npm start --prefix backend"
   },
   "keywords": [],
   "author": "",

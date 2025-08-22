@@ -12,11 +12,13 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const MongoStore = require("connect-mongo");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const path = require("path");
 
 const User = require("./models/user");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
   if (req.method !== "OPTIONS") {
@@ -25,9 +27,17 @@ app.use((req, res, next) => {
   next();
 });
 
+const allowedOrigins = ["http://localhost:5173", process.env.CLIENT_URL];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -47,6 +57,8 @@ async function main() {
   }
 }
 main();
+
+const PORT = process.env.PORT || 8080;
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,
@@ -83,12 +95,19 @@ passport.use(
   new LocalStrategy({ usernameField: "email" }, User.authenticate())
 );
 
+const callbackURLs = [
+  "http://localhost:8080/api/user/google/callback",
+  "https://your-backend-app.onrender.com/api/user/google/callback",
+];
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:8080/api/user/google/callback",
+      callbackURL:
+        process.env.NODE_ENV === "production"
+          ? callbackURLs[1]
+          : callbackURLs[0],
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
@@ -135,6 +154,10 @@ app.use("/api", userRoutes);
 app.use("/api", entryRoutes);
 app.use("/api", authRoutes);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // app.all("*", (req, res, next) => {
 //   console.log("404 for URL:", req.originalUrl);
 //   next(new ExpressError(404, "Page not found"));
@@ -144,6 +167,6 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ error: err.message });
 });
 
-app.listen(8080, () => {
-  console.log("Server running on http://localhost:8080");
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });

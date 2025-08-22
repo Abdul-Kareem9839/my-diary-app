@@ -1,0 +1,22 @@
+@keyframes text-shine {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.shine-text {
+  background: linear-gradient(
+    90deg,
+    #34d399,
+    /* teal base color */ #e239a1 50%,
+    /* white shine */ #34d399
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shine 3s linear infinite;
+}

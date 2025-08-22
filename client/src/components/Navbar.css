@@ -1,0 +1,14 @@
+.nav-link {
+  display: flex;
+  align-items: center;
+  margin-right: auto !important;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fff !important;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: #e21313 !important;
+  font-size: 1.2rem;
+}

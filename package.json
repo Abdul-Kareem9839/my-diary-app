@@ -1,0 +1,28 @@
+{
+  "name": "zendiary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others-on-fail \"npm run dev:backend\" \"npm run dev:client\" \"npm run open\"",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:client": "npm run dev --prefix client",
+    "open": "wait-on http://localhost:5173 && node open-client.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "open": "^10.2.0",
+    "wait-on": "^8.0.4"
+  },
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "date-fns": "^4.1.0",
+    "joi": "^18.0.0",
+    "react-calendar": "^6.0.0"
+  }
+}

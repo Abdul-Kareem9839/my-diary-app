@@ -3,7 +3,6 @@ import { FcGoogle } from "react-icons/fc";
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function SignInPage() {
   const navigate = useNavigate();
@@ -17,8 +16,8 @@ export default function SignInPage() {
     try {
       const res = await fetch(`/api/signin`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         credentials: "include",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: email,
           password: password,

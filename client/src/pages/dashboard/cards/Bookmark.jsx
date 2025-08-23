@@ -1,14 +1,13 @@
-// Toggle bookmark (add/remove)
+
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export async function toggleBookmark(userId, entryId, bookmarkState) {
   try {
-    const response = await fetch(
-      `http://localhost:8080/api/users/${userId}/bookmark`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ entryId, bookmark: bookmarkState }),
-      }
-    );
+    const response = await fetch(`${apiUrl}/api/users/${userId}/bookmark`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ entryId, bookmark: bookmarkState }),
+    });
 
     const data = await response.json();
     if (!response.ok) {

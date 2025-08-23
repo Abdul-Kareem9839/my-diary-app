@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function RegisterPage() {
     const email = formData.get("email");
     const password = formData.get("password");
     try {
-      const res = await fetch("http://localhost:8080/api/register", {
+      const res = await fetch(`${apiUrl}/api/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

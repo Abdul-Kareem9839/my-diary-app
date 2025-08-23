@@ -8,13 +8,14 @@ import Features from "./Features";
 import Contact from "./Contact";
 import CallToAct from "./CallToAct";
 import Footer from "./footer";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Home() {
   const navigate = useNavigate();
   const [currUser, setCurrUser] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/current-user", {
+    fetch(`${apiUrl}/api/current-user`, {
       credentials: "include",
     })
       .then((res) => res.json())

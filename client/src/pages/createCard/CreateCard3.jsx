@@ -73,7 +73,7 @@ export default function CreateCard3() {
     if (image) formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:8080/api/dashboard", {
+      const res = await fetch("${apiUrl}/api/dashboard", {
         method: "POST",
         credentials: "include",
         body: formData,

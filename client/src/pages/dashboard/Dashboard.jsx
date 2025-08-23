@@ -24,6 +24,7 @@ const Dashboard = () => {
   const [showBookmarks, setShowBookmarks] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [query, setQuery] = useState("");
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
@@ -86,7 +87,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/logout", {
+      const res = await fetch("${apiUrl}/api/logout", {
         method: "GET",
         credentials: "include",
       });

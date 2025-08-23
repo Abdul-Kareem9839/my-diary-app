@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Showcard1Content from "./ShowCard1Content";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function ViewEntry() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export default function ViewEntry() {
 
   // Fetch entry from backend
   useEffect(() => {
-    fetch(`http://localhost:8080/api/view/${id}`, {
+    fetch(`${apiUrl}/api/view/${id}`, {
       method: "GET",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -28,7 +29,7 @@ export default function ViewEntry() {
   // Handle content update
   const handleUpdate = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/view/${id}`, {
+      const res = await fetch(`${apiUrl}/api/view/${id}`, {
         method: "PUT",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -49,7 +50,7 @@ export default function ViewEntry() {
   // Handle entry deletion
   const handleDelete = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/view/${id}`, {
+      const res = await fetch(`${apiUrl}/api/view/${id}`, {
         method: "DELETE",
         credentials: "include",
       });

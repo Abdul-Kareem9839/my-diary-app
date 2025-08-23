@@ -32,7 +32,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchEntriesAndUser = async () => {
       try {
-        const res = await fetch(`${apiUrl}/api/dashboard`, {
+        const res = await fetch(`${apiUrl}/api/entries`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

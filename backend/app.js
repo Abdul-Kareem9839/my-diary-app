@@ -27,21 +27,12 @@ app.use((req, res, next) => {
   next();
 });
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://my-diary-app-zenscribe.onrender.com",
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        console.log("Blocked by CORS:", origin);
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: [
+      "http://localhost:5173",
+      "https://my-diary-app-zenscribe.onrender.com",
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],

@@ -24,7 +24,6 @@ const Dashboard = () => {
   const [showBookmarks, setShowBookmarks] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [query, setQuery] = useState("");
-  const apiUrl = import.meta.env.VITE_API_URL;
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
@@ -32,7 +31,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchEntriesAndUser = async () => {
       try {
-        const res = await fetch(`${apiUrl}/api/entries`, {
+        const res = await fetch(`/api/entries`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -40,7 +39,7 @@ const Dashboard = () => {
         const data = await res.json();
         if (data.entries) setEntries(data.entries);
 
-        const userRes = await fetch(`${apiUrl}/api/current-user`, {
+        const userRes = await fetch(`/api/current-user`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -87,7 +86,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch(`${apiUrl}/api/logout`, {
+      const res = await fetch(`/api/logout`, {
         method: "POST",
         credentials: "include",
       });

@@ -15,7 +15,7 @@ export default function SignInPage() {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch(`${apiUrl}/api/signin`, {
+      const res = await fetch(`/api/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -116,7 +116,7 @@ export default function SignInPage() {
 
         <div className="flex gap-3">
           <button
-            onClick={() => (window.location.href = `${apiUrl}/api/user/google`)}
+            onClick={() => (window.location.href = `/api/user/google`)}
             className="flex items-center justify-center gap-2 w-1/2 bg-white border border-gray-300 rounded-md py-2 text-sm text-gray-700 hover:bg-gray-50 transition"
           >
             <FcGoogle size={18} /> Google

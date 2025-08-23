@@ -5,6 +5,7 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import { motion } from "framer-motion";
 import VoiceToText from "./VoiceTotext";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const feelings = [
   { emoji: "😀", label: "happy", description: "Filled with joy and happiness" },
@@ -72,7 +73,7 @@ export default function CreateCard7() {
       formData.append("date", formattedDate);
       formData.append("time", formattedTime);
 
-      const res = await fetch("${apiUrl}/api/dashboard", {
+      const res = await fetch(`${apiUrl}/api/dashboard`, {
         method: "POST",
         credentials: "include",
         body: formData,

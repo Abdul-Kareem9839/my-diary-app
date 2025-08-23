@@ -1,9 +1,6 @@
-
-const apiUrl = import.meta.env.VITE_API_URL;
-
 export async function toggleBookmark(userId, entryId, bookmarkState) {
   try {
-    const response = await fetch(`${apiUrl}/api/users/${userId}/bookmark`, {
+    const response = await fetch(`/api/users/${userId}/bookmark`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ entryId, bookmark: bookmarkState }),
@@ -26,9 +23,7 @@ export async function toggleBookmark(userId, entryId, bookmarkState) {
 // Fetch all bookmarked entries
 export async function getBookmarkEntries(userId) {
   try {
-    const response = await fetch(
-      `http://localhost:8080/api/users/${userId}/bookmarks`
-    );
+    const response = await fetch(`/api/users/${userId}/bookmarks`);
     if (!response.ok) throw new Error("Failed to fetch bookmarks");
     const data = await response.json();
     return data.bookmarks;

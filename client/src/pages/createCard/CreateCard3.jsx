@@ -5,7 +5,6 @@ import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import VoiceToText from "./VoiceTotext";
-const apiUrl = import.meta.env.VITE_API_URL;
 
 const feelings = [
   { emoji: "😎", label: "Cool", description: "Feeling confident and chill" },
@@ -74,7 +73,7 @@ export default function CreateCard3() {
     if (image) formData.append("image", image);
 
     try {
-      const res = await fetch(`${apiUrl}/api/dashboard`, {
+      const res = await fetch(`/api/dashboard`, {
         method: "POST",
         credentials: "include",
         body: formData,

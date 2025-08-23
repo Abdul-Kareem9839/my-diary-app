@@ -10,10 +10,27 @@ export default function TopSec({ currUser }) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center animate-gradient bg-gradient-to-br from-white via-white to-[#A8E6CF] text-zinc-800 overflow-hidden px-4 scroll-smooth"
+      className="relative min-h-screen flex flex-col justify-center items-center animate-gradient text-zinc-800 overflow-hidden px-4 scroll-smooth"
     >
+      <svg
+        id="visual"
+        viewBox="0 0 960 540"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        className="absolute top-0 left-0 w-full h-full -z-10"
+        preserveAspectRatio="none"
+      >
+        <rect x="0" y="0" width="960" height="540" fill="#FFFFFF"></rect>
+        <g fill="#009473">
+          <circle r="162" cx="133" cy="275"></circle>
+          <circle r="71" cx="946" cy="27"></circle>
+          <circle r="79" cx="526" cy="321"></circle>
+          <circle r="91" cx="851" cy="400"></circle>
+        </g>
+      </svg>
       <div className="fixed top-0 w-full left-0 bg-white/80 backdrop-blur-lg z-50 flex">
-        <div className="max-w-6xl mx-auto flex justify-center space-x-6 py-3 mt-1 text-xs w-[15rem] ">
+        <div className=" relative max-w-6xl mx-auto flex justify-center space-x-6 py-3 mt-1 text-xs w-[15rem] ">
           <a
             href="#home"
             className="text-gray-400 font-medium hover:text-teal-600 transition"
@@ -67,7 +84,7 @@ export default function TopSec({ currUser }) {
       </motion.h1>
 
       <motion.p
-        className="text-lg md:text-xl text-center text-gray-500 max-w-2xl mb-10"
+        className="relative z-10 text-lg md:text-xl text-center text-gray-800 max-w-2xl mb-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
@@ -77,7 +94,7 @@ export default function TopSec({ currUser }) {
       </motion.p>
 
       <motion.div
-        className="max-w-4xl mb-5 mx-auto text-center px-4 py-6 bg-white bg-opacity-30 backdrop-blur-md rounded-xl shadow-lg border border-white/30"
+        className="max-w-4xl mb-5 mx-auto text-center px-4 py-6 bg-white bg-opacity-50 backdrop-blur-md rounded-xl shadow-lg border border-white/30"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.8, duration: 0.8 }}
@@ -86,7 +103,7 @@ export default function TopSec({ currUser }) {
           A Diary Made For You
         </h2>
 
-        <p className="text-green-800 text-md md:text-lg leading-relaxed font-light italic">
+        <p className="text-green-800 text-md md:text-lg leading-relaxed italic">
           Write with ease, bookmark what matters, and access your entries
           anytime. A secure diary with voice-to-text and a personalized
           dashboard — designed for you.

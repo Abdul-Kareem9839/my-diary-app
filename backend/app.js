@@ -44,12 +44,9 @@ app.use(
   })
 );
 
-const dbUrl =
-  "mongodb+srv://abdul-kareem:deps9owxngrrXqBp@cluster0.dr0tvme.mongodb.net/ZenScribe?retryWrites=true&w=majority&appName=Cluster0&tls=true";
-
 async function main() {
   try {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(process.env.ATLASDB_URL);
     console.log("connection to DB");
   } catch (err) {
     console.error("Mongodb connectoin error: ", err);
@@ -61,7 +58,7 @@ main();
 const PORT = process.env.PORT || 8080;
 
 const store = MongoStore.create({
-  mongoUrl: dbUrl,
+  mongoUrl: process.env.ATLASDB_URL,
   touchAfter: 24 * 3600,
   crypto: {
     secret: process.env.SECRET,
@@ -154,9 +151,9 @@ app.use("/api", userRoutes);
 app.use("/api", entryRoutes);
 app.use("/api", authRoutes);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "index.html"));
+// });
 
 // app.all("*", (req, res, next) => {
 //   console.log("404 for URL:", req.originalUrl);

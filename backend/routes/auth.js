@@ -1,4 +1,6 @@
+const express = require("express");
 const passport = require("passport");
+const router = express.Router();
 
 router.get(
   "/user/google",
@@ -15,3 +17,5 @@ router.get(
     res.redirect("http://localhost:5173/dashboard");
   }
 );
+
+module.exports = router;

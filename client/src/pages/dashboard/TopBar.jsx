@@ -10,7 +10,7 @@ export default function Topbar({
   handleChange,
 }) {
   return (
-    <div className="sticky px-3 py-2 flex items-center justify-between border border-gray-200 shadow-sm">
+    <div className="sticky px-3 py-2 flex items-center justify-between border border-gray-400 shadow-sm">
       {/* Left Section - Logo */}
       <div className="flex items-center gap-2 ">
         <button
@@ -19,7 +19,7 @@ export default function Topbar({
         >
           ☰
         </button>
-        <div className="border border-gray-300 rounded-3xl flex gap-2 py-1 px-3">
+        <div className="border border-gray-500 rounded-3xl flex gap-2 py-1 px-3">
           <div className="w-8 h-8 rounded-full overflow-hidden ">
             <img
               src="/src/assets/LogoNew.jpg"
@@ -47,7 +47,7 @@ export default function Topbar({
 
       {/* Right Section - Username & Profile Icon */}
       <div className="flex items-center cursor-pointer gap-2 mr-6">
-        <span className="hidden sm:flex font-medium text-teal-900 text-sm">
+        <span className="hidden sm:flex font-medium text-black text-sm">
           Hye! @{currUser?.username || "Guest"}
         </span>
         <FaUserCircle className="text-3xl text-teal-700" />

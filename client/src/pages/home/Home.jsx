@@ -22,20 +22,15 @@ export default function Home() {
   }, []);
 
   const handleMyDiaryClick = () => {
-    if (currUser)
-      navigate("/dashboard"); // logged in → dashboard
-    else alert("Please register or log in first!"); // not logged in → popup
+    if (currUser) navigate("/dashboard");
+    else alert("Please register or log in first!");
   };
 
   return (
-    <div className="bg-white text-gray-800 font-sans w-full">
+    <div className=" relative text-gray-800 font-sans w-full">
       <TopSec currUser={handleMyDiaryClick} />
 
-      {/* About Section */}
-      <section
-        className="py-20 px-6 bg-gradient-to-bl from-[#A8E6CF] via-white to-white text-center"
-        id="why"
-      >
+      <section className="py-20 px-6 bg-white text-center" id="why">
         <h2 className="text-4xl font-bold mb-4">Why ZenScribe?</h2>
         <p className="text-lg max-w-3xl mx-auto text-gray-600">
           In a world full of distractions and noise, ZenScribe gives you a calm

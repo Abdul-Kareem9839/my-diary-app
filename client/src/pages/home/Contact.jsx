@@ -59,10 +59,9 @@ export default function Contact() {
           </form>
         </div>
 
-        {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center items-center ms-10">
           <img
-            src="/src/assets/feedback.png"
+            src="/assets/feedback.png"
             alt="Feedback illustration"
             className="max-w-full h-auto rounded-lg"
           />

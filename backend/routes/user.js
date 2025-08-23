@@ -57,13 +57,16 @@ router.get("/current-user", (req, res) => {
   }
 });
 
-router.get("/logout", (req, res, next) => {
-  req.logout((err) => {
-    if (err) {
-      return next(err);
-    }
-    console.log("session ended");
-    res.status(200).json({ message: "You logged out" });
+router.post("/logout", (req, res, next) => {
+  req.logout(function (err) {
+    if (err) return next(err);
+    req.session.destroy(() => {
+      res.clearCookie("connect.sid", {
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: process.env.NODE_ENV === "production",
+      });
+      res.status(200).json({ message: "Logged out successfully" });
+    });
   });
 });
 

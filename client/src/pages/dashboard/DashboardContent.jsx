@@ -41,7 +41,7 @@ export default function DashboardContent({
         id="visual"
         viewBox="0 0 960 540"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
         version="1.1"
         className="absolute top-0 left-0 w-full h-full -z-10"
         preserveAspectRatio="none"

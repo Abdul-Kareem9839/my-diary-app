@@ -32,7 +32,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchEntriesAndUser = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/dashboard", {
+        const res = await fetch(`${apiUrl}/api/dashboard`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -40,7 +40,7 @@ const Dashboard = () => {
         const data = await res.json();
         if (data.entries) setEntries(data.entries);
 
-        const userRes = await fetch("http://localhost:8080/api/current-user", {
+        const userRes = await fetch(`${apiUrl}/api/current-user`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -87,8 +87,8 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("${apiUrl}/api/logout", {
-        method: "GET",
+      const res = await fetch(`${apiUrl}/api/logout`, {
+        method: "POST",
         credentials: "include",
       });
       if (res.ok) navigate("/signin");

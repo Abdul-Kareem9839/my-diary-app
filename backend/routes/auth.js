@@ -9,12 +9,13 @@ router.get(
 
 router.get(
   "/user/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "http://localhost:5173/login",
-  }),
+  passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
-    console.log("Google user logged in:", req.user.email || req.user.name);
-    res.redirect("http://localhost:5173/dashboard");
+    // Send frontend URL dynamically
+    res.json({
+      message: "Google login successful",
+      redirectUrl: process.env.CLIENT_URL + "/dashboard",
+    });
   }
 );
 

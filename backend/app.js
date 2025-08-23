@@ -18,7 +18,7 @@ const User = require("./models/user");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use((req, res, next) => {
   if (req.method !== "OPTIONS") {
@@ -77,9 +77,9 @@ const sessionOption = {
   cookie: {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
-    sameSite: "lax",
-    secure: false,
     httpOnly: true,
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    secure: process.env.NODE_ENV === "production",
   },
 };
 
@@ -94,7 +94,7 @@ passport.use(
 
 const callbackURLs = [
   "http://localhost:8080/api/user/google/callback",
-  "https://your-backend-app.onrender.com/api/user/google/callback",
+  "https://my-diary-app-zenscribe.onrender.com/api/user/google/callback",
 ];
 passport.use(
   new GoogleStrategy(
@@ -151,9 +151,11 @@ app.use("/api", userRoutes);
 app.use("/api", entryRoutes);
 app.use("/api", authRoutes);
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "public", "index.html"));
-// });
+app.get(/.*/, (req, res) => {
+  if (!req.path.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  }
+});
 
 // app.all("*", (req, res, next) => {
 //   console.log("404 for URL:", req.originalUrl);
@@ -165,5 +167,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on ${PORT}`);
 });

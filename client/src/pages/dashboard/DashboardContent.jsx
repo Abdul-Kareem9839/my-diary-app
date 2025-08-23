@@ -9,6 +9,7 @@ import { format } from "date-fns";
 import StyleIcon from "@mui/icons-material/Style";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import "react-calendar/dist/Calendar.css";
 
 export default function DashboardContent({
   currUser,

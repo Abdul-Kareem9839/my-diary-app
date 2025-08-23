@@ -30,8 +30,8 @@ app.use((req, res, next) => {
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
-      "https://my-diary-app-zenscribe.onrender.com",
+      "http://localhost:5173", // for local dev
+      "https://my-diary-app-zenscribe.onrender.com", // your Render domain
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -69,6 +69,7 @@ const sessionOption = {
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
+  proxy: true,
   cookie: {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,

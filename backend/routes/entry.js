@@ -69,7 +69,7 @@ router.post(
 //   }
 // });
 
-router.get("/dashboard", isLoggedIn, async (req, res) => {
+router.get("/entries", isLoggedIn, async (req, res) => {
   try {
     const entries = await Entry.find({ user: req.user._id });
     const user = await User.findById(req.user._id);

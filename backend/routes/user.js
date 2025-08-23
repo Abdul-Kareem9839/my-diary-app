@@ -39,7 +39,17 @@ router.post("/signin", validateLogin, (req, res, next) => {
 
     req.logIn(user, (err) => {
       if (err) return next(err);
+
       console.log("User session created:", user.email);
+
+      // ✅ force Set-Cookie in response
+      res.cookie("connect.sid", req.sessionID, {
+        httpOnly: true,
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 24 * 60 * 60 * 1000, // 1 day
+      });
+
       return res.json({
         message: "Login successful",
         user: { id: user._id, email: user.email },

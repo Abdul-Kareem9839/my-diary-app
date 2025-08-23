@@ -3,12 +3,12 @@ const passport = require("passport");
 const router = express.Router();
 
 router.get(
-  "/user/google",
+  "/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
 router.get(
-  "/user/google/callback",
+  "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
     // Send frontend URL dynamically

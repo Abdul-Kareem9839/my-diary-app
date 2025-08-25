@@ -30,8 +30,8 @@ app.use((req, res, next) => {
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // for local dev
-      "https://my-diary-app-zenscribe.onrender.com", // your Render domain
+      "http://localhost:5173",
+      "https://my-diary-app-zenscribe.onrender.com",
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -162,6 +162,6 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ error: err.message });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT || 8080, () => {
   console.log(`Server running on ${PORT}`);
 });

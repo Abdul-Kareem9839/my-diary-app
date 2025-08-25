@@ -61,7 +61,7 @@ export default function Contact() {
 
         <div className="w-full md:w-1/2 flex justify-center items-center ms-10">
           <img
-            src="/assets/feedback.png"
+            src="/feedback.png"
             alt="Feedback illustration"
             className="max-w-full h-auto rounded-lg"
           />

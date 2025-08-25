@@ -36,7 +36,7 @@ export default function CreateCard1() {
 
   const now = new Date();
   const card_id = "card1";
-  const formattedDate = now.toLocaleDateString(en - IN, {
+  const formattedDate = now.toLocaleDateString("en-IN", {
     year: "numeric",
     month: "short",
     day: "numeric",

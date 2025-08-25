@@ -22,7 +22,7 @@ export default function Topbar({
         <div className="border border-gray-500 rounded-3xl flex gap-2 py-1 px-3">
           <div className="w-8 h-8 rounded-full overflow-hidden ">
             <img
-              src="/src/assets/LogoNew.jpg"
+              src="/LogoNew.jpg"
               alt="ZenScribe Logo"
               className="w-full h-full object-cover rounded-full"
             />

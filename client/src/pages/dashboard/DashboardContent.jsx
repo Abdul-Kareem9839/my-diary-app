@@ -90,7 +90,7 @@ export default function DashboardContent({
 
       <div className="flex-1 overflow-auto px-10 py-3 ">
         <div className="flex sm:hidden items-center w-[18rem]  rounded-[2rem] overflow-hidden border border-teal-800 mb-7 ms-8 mt-1 hover:border-1 hover:border-teal-800 hover:scale-105 transition-all duration-300">
-          <button className="px-3 py-1 text-teal-600 transition-transform duration-200 hover:scale-110 active:scale-90 focus:outline-none border-0">
+          <button className="px-3 py-1 text-teal-600 transition-transform duration-200 hover:scale-110 active:scale-90 border-0 bg-transparent outline-none focus:outline-none focus:ring-0">
             <SearchIcon />
           </button>
           <input
@@ -120,7 +120,7 @@ export default function DashboardContent({
                   </button>
                 ) : (
                   <button
-                    className="border-0 focus:outline-none text-teal-800"
+                    className="border-0 bg-transparent outline-none focus:outline-none focus:ring-0 text-teal-800"
                     onClick={onShowBookmarks}
                   >
                     <BookmarkBorderIcon className="hover:scale-110" />
@@ -132,7 +132,7 @@ export default function DashboardContent({
               <div className="flex flex-col justify-center items-center">
                 <button
                   onClick={() => setShowCalendar((prev) => !prev)}
-                  className="border-0 focus:outline-none hover:scale-110 transition"
+                  className="border-0 bg-transparent outline-none focus:outline-none focus:ring-0 hover:scale-110 transition"
                 >
                   <CalendarMonthIcon className="text-teal-800" />
                 </button>

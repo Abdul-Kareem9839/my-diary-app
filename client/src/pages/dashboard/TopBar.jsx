@@ -15,7 +15,7 @@ export default function Topbar({
       <div className="flex items-center gap-2 ">
         <button
           onClick={onProfileClick}
-          className="p-2 rounded hover:scale-110 text-xl text-black border-0 focus:outline-none "
+          className="p-2 rounded hover:scale-110 text-xl text-black border-0 bg-transparent outline-none focus:outline-none focus:ring-0 "
         >
           ☰
         </button>
@@ -33,7 +33,7 @@ export default function Topbar({
 
       {/* Center Section - Search Bar */}
       <div className="hidden sm:flex items-center w-[28rem] rounded-[2rem] overflow-hidden border border-teal-800 mt-2 mb-2 hover:border-1 hover:scale-105 hover:border-teal-900 transition-all duration-300">
-        <button className="p-3 text-teal-800 transition-transform duration-200 hover:scale-110 active:scale-90 focus:outline-none border-0">
+        <button className="p-3 text-teal-800 transition-transform duration-200 hover:scale-110 active:scale-90 border-0 bg-transparent outline-none focus:outline-none focus:ring-0">
           <SearchIcon />
         </button>
         <input

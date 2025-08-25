@@ -61,7 +61,7 @@ export default function VoiceToText({ content, setContent }) {
         <button
           type="button"
           onClick={startListening}
-          className={`px-3 py-1 rounded-full text-sm focus:outline-none ${
+          className={`px-3 py-1 rounded-full text-sm border-0 bg-transparent outline-none focus:outline-none focus:ring-0 ${
             isListening ? "bg-red-500" : " animate-pulse"
           }`}
         >
@@ -74,7 +74,7 @@ export default function VoiceToText({ content, setContent }) {
         <button
           type="button"
           onClick={stopListening}
-          className="px-3 py-1 text-white rounded-full text-sm flex items-center justify-center focus:outline-none"
+          className="px-3 py-1 text-white rounded-full text-sm flex items-center justify-center border-0 bg-transparent outline-none focus:outline-none focus:ring-0"
         >
           <StopIcon />
           <span className="ml-2 w-3 h-3 bg-green-800 rounded-full animate-pulse"></span>

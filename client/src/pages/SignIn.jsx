@@ -43,7 +43,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="relative flex justify-center w-full px-4 min-h-screen bg-cover bg-center">
+    <div className="relative flex justify-center w-full px-4 h-[50rem] bg-cover bg-center">
       <div
         className="absolute inset-0 bg-cover bg-center blur-sm"
         style={{

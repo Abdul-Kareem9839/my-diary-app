@@ -32,7 +32,7 @@ export default function Showcard1Content({
           <div className="absolute top-4 right-4">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-full hover:bg-gray-700/50 transition"
+              className="p-2 rounded-full hover:bg-gray-700/50 transition border-0 bg-transparent outline-none focus:outline-none focus:ring-0"
             >
               <FiMoreVertical size={20} />
             </button>
@@ -49,7 +49,7 @@ export default function Showcard1Content({
                       setMenuOpen(false);
                       setIsEditing(true);
                     }}
-                    className="flex items-center px-4 py-2 hover:bg-gray-600 w-full text-left"
+                    className="flex items-center px-4 py-2 hover:bg-gray-600 w-full text-left border-0 bg-transparent outline-none focus:outline-none focus:ring-0"
                   >
                     <FiEdit2 className="mr-2" /> Edit
                   </button>
@@ -58,7 +58,7 @@ export default function Showcard1Content({
                       setMenuOpen(false);
                       handleDelete();
                     }}
-                    className="flex items-center px-4 py-2 hover:bg-red-600 w-full text-left text-red-300"
+                    className="flex items-center px-4 py-2 hover:bg-red-600 w-full text-left text-red-300 border-0 bg-transparent outline-none focus:outline-none focus:ring-0"
                   >
                     <FiTrash2 className="mr-2" /> Delete
                   </button>

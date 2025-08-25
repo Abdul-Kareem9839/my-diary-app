@@ -166,11 +166,11 @@ export default function CreateCard3() {
             >
               {currentFeeling.emoji}
             </div>
-            <div className="w-20">
-              <h3 className="font-serif text-2xl text-gray-100 font-semibold">
+            <div>
+              <h3 className="font-serif text-md text-gray-100 font-semibold">
                 {currentFeeling.label}
               </h3>
-              <p className="text-gray-300 text-sm italic mt-1 max-w-xs">
+              <p className="text-gray-300 text-sm italic max-w-xs">
                 {currentFeeling.description}
               </p>
             </div>

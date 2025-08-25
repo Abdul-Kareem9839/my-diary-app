@@ -151,8 +151,8 @@ export default function CreateCard2() {
             <div className="bg-pink-500 rounded-2xl h-16 w-14 text-4xl flex items-center justify-center shadow-lg text-white select-none">
               {currentFeeling.emoji}
             </div>
-            <div className="w-20">
-              <h3 className="font-serif text-2xl text-pink-200 font-semibold">
+            <div>
+              <h3 className="font-serif text-md text-pink-200 font-semibold">
                 {currentFeeling.label}
               </h3>
               <p className="text-pink-300 text-sm italic mt-1 max-w-xs">
@@ -163,7 +163,7 @@ export default function CreateCard2() {
           <button
             type="button"
             onClick={handleChangeFeeling}
-            className="bg-pink-600 hover:bg-pink-700 text-white px-4 ml-3 py-2 rounded-full flex items-center space-x-2 shadow-md transition duration-300 select-none"
+            className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full flex items-center space-x-2 shadow-md transition duration-300 select-none"
             title="Change Feeling"
           >
             <span>Change</span>

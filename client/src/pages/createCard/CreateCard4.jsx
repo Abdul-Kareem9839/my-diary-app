@@ -147,7 +147,7 @@ export default function CreateCard4() {
             <div className="bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-2xl h-16 w-14 flex items-center justify-center text-4xl shadow-md text-yellow-100 select-none">
               {currentFeeling.emoji}
             </div>
-            <div className="w-20">
+            <div>
               <h3 className="font-serif text-md italic font-semibold text-yellow-200">
                 {currentFeeling.label}
               </h3>
@@ -159,7 +159,7 @@ export default function CreateCard4() {
           <button
             type="button"
             onClick={handleChangeFeeling}
-            className="bg-yellow-700/40 hover:bg-yellow-600/50 text-yellow-200 px-4 ml-3 py-2 rounded-full flex items-center space-x-2 shadow-md transition duration-300 select-none"
+            className="bg-yellow-700/40 hover:bg-yellow-600/50 text-yellow-200 px-4 py-2 rounded-full flex items-center space-x-2 shadow-md transition duration-300 select-none"
             title="Change Feeling"
           >
             <span>Change</span>

@@ -9,10 +9,23 @@ router.get(
 
 router.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/signin" }),
+  passport.authenticate("google", {
+    failureRedirect: "/signin",
+    session: true,
+  }),
   (req, res) => {
+    if (!req.user) {
+      // If something went wrong, force user back to signin
+      return res.redirect(
+        (process.env.CLIENT_URL || "http://localhost:5173") + "/signin"
+      );
+    }
+
     const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
-    console.log("Redirecting to:", clientUrl + "/dashboard");
+    console.log(
+      "✅ Google login successful, redirecting to:",
+      clientUrl + "/dashboard"
+    );
     res.redirect(`${clientUrl}/dashboard`);
   }
 );

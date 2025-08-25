@@ -43,7 +43,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="relative flex justify-center w-full px-4 h-[50rem] bg-cover bg-center">
+    <div className="relative flex justify-center w-full px-4 min-h-screen bg-cover bg-center">
       <div
         className="absolute inset-0 bg-cover bg-center blur-sm"
         style={{
@@ -52,7 +52,7 @@ export default function SignInPage() {
         }}
       ></div>
       <motion.div
-        className="relative z-10 bg-gradient-to-br from-teal-600/30 via-green-700/50 to-white shadow-sm shadow-white border border-white rounded-2xl p-6 m-3 w-full max-w-xs sm:max-w-sm"
+        className="relative z-10 h-[35rem] bg-gradient-to-br from-teal-600/30 via-green-700/50 to-white shadow-sm shadow-white border border-white rounded-2xl p-6 m-3 w-full max-w-xs sm:max-w-sm"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: [0.1, 1.2, 0.95, 1] }}
         transition={{
@@ -115,7 +115,12 @@ export default function SignInPage() {
 
         <div className="flex gap-3">
           <button
-            onClick={() => (window.location.href = `/api/user/google`)}
+            onClick={() =>
+              (window.location.href =
+                process.env.NODE_ENV === "production"
+                  ? "https://my-diary-app-zenscribe.onrender.com/api/auth/google"
+                  : "http://localhost:8080/api/auth/google")
+            }
             className="flex items-center justify-center gap-2 w-1/2 bg-white border border-gray-300 rounded-md py-2 text-sm text-gray-700 hover:bg-gray-50 transition"
           >
             <FcGoogle size={18} /> Google

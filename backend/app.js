@@ -89,8 +89,8 @@ passport.use(
 );
 
 const callbackURLs = [
-  "http://localhost:8080/api/user/google/callback",
-  "https://my-diary-app-zenscribe.onrender.com/api/user/google/callback",
+  "http://localhost:8080/api/auth/google/callback",
+  "https://my-diary-app-zenscribe.onrender.com/api/auth/google/callback",
 ];
 passport.use(
   new GoogleStrategy(

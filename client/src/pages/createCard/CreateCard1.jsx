@@ -35,18 +35,19 @@ export default function CreateCard1() {
   const [error, setError] = useState("");
 
   const now = new Date();
+  const istOffset = 5.5 * 60;
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  const istTime = new Date(utc + istOffset * 60000);
   const card_id = "card1";
-  const formattedDate = now.toLocaleDateString("en-IN", {
+  const formattedDate = istTime.toLocaleDateString("en-IN", {
     year: "numeric",
     month: "short",
     day: "numeric",
-    timeZone: "Asia/Kolkata",
   });
-  const formattedTime = now.toLocaleTimeString("en-IN", {
+  const formattedTime = istTime.toLocaleTimeString("en-IN", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
-    timeZone: "Asia/Kolkata",
   });
 
   const handleImageChange = (e) => {

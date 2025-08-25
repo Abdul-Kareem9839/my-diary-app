@@ -659,6 +659,10 @@ video {
   margin: 0.75rem;
 }
 
+.m-8 {
+  margin: 2rem;
+}
+
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -842,8 +846,12 @@ video {
   height: 2rem;
 }
 
-.h-\[50rem\] {
-  height: 50rem;
+.h-\[35rem\] {
+  height: 35rem;
+}
+
+.h-\[40rem\] {
+  height: 40rem;
 }
 
 .h-auto {
@@ -1213,11 +1221,6 @@ video {
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-t-\[2rem\] {
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
 }
 
 .border {

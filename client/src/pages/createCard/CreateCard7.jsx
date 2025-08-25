@@ -35,14 +35,16 @@ export default function CreateCard7() {
 
   const now = new Date();
   const card_id = "card7";
-  const formattedDate = now.toLocaleDateString(undefined, {
+  const formattedDate = now.toLocaleDateString("en-IN", {
     year: "numeric",
     month: "short",
     day: "numeric",
+    timeZone: "Asia/Kolkata",
   });
-  const formattedTime = now.toLocaleTimeString(undefined, {
+  const formattedTime = now.toLocaleTimeString("en-IN", {
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: "Asia/Kolkata",
   });
 
   const handleImageChange = (e) => {

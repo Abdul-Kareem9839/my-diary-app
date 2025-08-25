@@ -68,7 +68,7 @@ export default function Card4({ entry, userId }) {
           {isBookmark ? (
             <BookmarkIcon className="text-gray-200 drop-shadow-md" />
           ) : (
-            <BookmarkBorderIcon className="text-gray-400 drop-shadow-md" />
+            <BookmarkBorderIcon className="text-white drop-shadow-md" />
           )}
         </button>
       </div>

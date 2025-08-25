@@ -42,7 +42,7 @@ export default function CreateCard1() {
     day: "numeric",
     timeZone: "Asia/Kolkata",
   });
-  const formattedTime = now.toLocaleTimeString(en - IN, {
+  const formattedTime = now.toLocaleTimeString("en-IN", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,

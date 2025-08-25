@@ -58,7 +58,7 @@ export default function TopSec({ currUser }) {
         </div>
         <div className="flex flex-row items-center justify-center">
           <motion.button
-            className="text-gray-700 font-bold hover:text-teal-600 transition cursor-pointer focus:outline-none border-0 mr-4"
+            className="text-gray-700 font-bold hover:text-teal-600 transition cursor-pointer  border-0 bg-transparent outline-none focus:outline-none focus:ring-0 mr-4"
             onClick={currUser}
             whileHover={{ scale: 1.1, x: 5 }}
             whileTap={{ scale: 0.95 }}

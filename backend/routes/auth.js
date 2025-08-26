@@ -15,15 +15,18 @@ router.get(
   }),
   (req, res) => {
     if (!req.user) {
-      // If something went wrong, force user back to signin
       return res.redirect(
-        ("https://my-diary-app-zenscribe.onrender.com" ||
-          "http://localhost:5173") + "/signin"
+        (process.env.NODE_ENV === "production"
+          ? "https://my-diary-app-zenscribe.onrender.com"
+          : "http://localhost:5173") + "/signin"
       );
     }
 
     const clientUrl =
-      "https://my-diary-app-zenscribe.onrender.com" || "http://localhost:5173";
+      process.env.NODE_ENV === "production"
+        ? "https://my-diary-app-zenscribe.onrender.com"
+        : "http://localhost:5173";
+
     console.log(
       "✅ Google login successful, redirecting to:",
       clientUrl + "/dashboard"

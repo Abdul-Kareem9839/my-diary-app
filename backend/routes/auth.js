@@ -17,11 +17,13 @@ router.get(
     if (!req.user) {
       // If something went wrong, force user back to signin
       return res.redirect(
-        (process.env.CLIENT_URL || "http://localhost:5173") + "/signin"
+        ("https://my-diary-app-zenscribe.onrender.com" ||
+          "http://localhost:5173") + "/signin"
       );
     }
 
-    const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+    const clientUrl =
+      "https://my-diary-app-zenscribe.onrender.com" || "http://localhost:5173";
     console.log(
       "✅ Google login successful, redirecting to:",
       clientUrl + "/dashboard"

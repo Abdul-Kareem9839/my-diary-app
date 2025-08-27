@@ -156,7 +156,7 @@ app.use((req, res, next) => {
 
 app.use("/api/register", registerLimiter);
 app.use("/api/login", loginLimiter);
-app.use("/api/auth/google", signinLimiter);
+app.use("/api/auth/google", loginLimiter);
 app.use("/api", apiLimiter);
 
 app.use("/api", userRoutes);

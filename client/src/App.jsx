@@ -1,9 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import "./App.css";
-// import Navbar from "./components/Navbar";
 
-import SignIn from "./pages/SignIn";
-import Register from "./pages/Register";
+import SignIn from "./pages/signin/SignInPage";
+import Register from "./pages/register/RegisterPage";
 import Home from "./pages/home/Home";
 import Dashboard from "./pages/dashboard/Dashboard";
 import CardDesign from "./pages/CardDesign";

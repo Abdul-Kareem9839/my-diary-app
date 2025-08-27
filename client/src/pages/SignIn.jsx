@@ -18,14 +18,9 @@ export default function SignInPage() {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
+        body: JSON.stringify({ email, password }),
       });
-
       const data = await res.json();
-
       if (!res.ok) {
         setError(data.error || "Invalid credentials");
       } else {
@@ -55,10 +50,7 @@ export default function SignInPage() {
         className="relative z-10 h-[35rem] bg-gradient-to-br from-teal-600/30 via-green-700/50 to-white shadow-sm shadow-white border border-white rounded-2xl p-6 m-3 w-full max-w-xs sm:max-w-sm"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: [0.1, 1.2, 0.95, 1] }}
-        transition={{
-          duration: 1.5,
-          ease: "easeOut",
-        }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <h1 className="text-center text-2xl font-extrabold text-black mb-6">
           Welcome Back to{" "}

@@ -1,14 +1,13 @@
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SearchIcon from "@mui/icons-material/Search";
+import StyleIcon from "@mui/icons-material/Style";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import Calendar from "react-calendar";
 import DrawIcon from "@mui/icons-material/Draw";
 import { useNavigate } from "react-router-dom";
-import { format } from "date-fns";
-import StyleIcon from "@mui/icons-material/Style";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import "react-calendar/dist/Calendar.css";
 
 export default function DashboardContent({
@@ -100,7 +99,7 @@ export default function DashboardContent({
               setQuery(e.target.value);
               handleSearch(e.target.value);
             }}
-            placeholder="✨ Search your memories"
+            placeholder="✨ Search as your feelings"
             className="flex-grow bg-transparent px-4 py-2 placeholder-teal-600 text-teal-700 focus:outline-none border-0"
           />
         </div>

@@ -11,7 +11,6 @@ export default function Topbar({
 }) {
   return (
     <div className="sticky px-3 py-2 flex items-center justify-between border border-gray-400 shadow-sm">
-      {/* Left Section - Logo */}
       <div className="flex items-center gap-2 ">
         <button
           onClick={onProfileClick}
@@ -31,7 +30,6 @@ export default function Topbar({
         </div>
       </div>
 
-      {/* Center Section - Search Bar */}
       <div className="hidden sm:flex items-center w-[28rem] rounded-[2rem] overflow-hidden border border-teal-800 mt-2 mb-2 hover:border-1 hover:scale-105 hover:border-teal-900 transition-all duration-300">
         <button className="p-3 text-teal-800 transition-transform duration-200 hover:scale-110 active:scale-90 border-0 bg-transparent outline-none focus:outline-none focus:ring-0">
           <SearchIcon />
@@ -45,7 +43,6 @@ export default function Topbar({
         />
       </div>
 
-      {/* Right Section - Username & Profile Icon */}
       <div className="flex items-center cursor-pointer gap-2 mr-6">
         <span className="hidden sm:flex font-medium text-black text-sm">
           Hye! @{currUser?.username || "Guest"}

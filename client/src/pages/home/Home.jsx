@@ -23,7 +23,7 @@ export default function Home() {
 
   const handleMyDiaryClick = () => {
     if (currUser) navigate("/dashboard");
-    else alert("Please register or log in first!");
+    else navigate("/register");
   };
 
   return (

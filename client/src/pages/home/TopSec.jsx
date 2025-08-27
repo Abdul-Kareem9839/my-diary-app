@@ -33,25 +33,25 @@ export default function TopSec({ currUser }) {
         <div className=" relative max-w-6xl mx-auto flex justify-center space-x-6 py-3 mt-1 text-xs w-[15rem] ">
           <a
             href="#home"
-            className="text-gray-400 font-medium hover:text-teal-600 transition"
+            className="text-gray-400 font-medium text-sm hover:text-teal-600 transition"
           >
             Home
           </a>
           <a
             href="#features"
-            className="text-gray-400 font-medium hover:text-teal-600 transition"
+            className="text-gray-400 font-medium text-sm hover:text-teal-600 transition"
           >
             Features
           </a>
           <a
             href="#why"
-            className="text-gray-400 font-medium hover:text-teal-600 transition"
+            className="text-gray-400 font-medium text-sm hover:text-teal-600 transition"
           >
             Why?
           </a>
           <a
             href="#feedback"
-            className="text-gray-400 font-medium hover:text-teal-600 transition"
+            className="text-gray-400 font-medium text-sm hover:text-teal-600 transition"
           >
             Feedback
           </a>
@@ -72,7 +72,6 @@ export default function TopSec({ currUser }) {
         </div>
       </div>
 
-      {/* ✅ Hero Content */}
       <motion.h1
         className="text-4xl md:text-5xl font-serif font-bold text-center tracking-wide drop-shadow-sm mb-4  mt-20"
         initial={{ opacity: 0, y: 20 }}
@@ -150,7 +149,7 @@ export default function TopSec({ currUser }) {
       >
         <button
           onClick={() => navigate("/register")}
-          className="px-6 py-3 border-2 border-teal-300 bg-teal-600 text-white hover:bg-transparent hover:text-teal-600 hover:border-white rounded-full font-semibold shadow-sm transition"
+          className="px-6 py-3 border-2 border-teal-300 bg-teal-600 text-white hover:bg-transparent hover:text-teal-600 hover:border-teal-600 hover:bg-gray-100 rounded-full font-semibold shadow-sm transition"
         >
           Start your journey now
           <KeyboardDoubleArrowRightIcon className="inline ml-2" />

@@ -30,7 +30,7 @@ const Footer = () => {
         }}
       >
         <path
-          fill="#25e7c7ff"
+          fill="#3ff7d8ff"
           fillOpacity="1"
           d="M0,192L48,165.3C96,139,192,85,288,53.3C384,21,480,11,576,16C672,21,768,43,864,90.7C960,139,1056,213,1152,218.7C1248,224,1344,160,1392,128L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>
@@ -41,8 +41,8 @@ const Footer = () => {
         sx={{
           position: "relative",
           zIndex: 1,
-          py: 8, // Increased padding to ensure content stays within wave
-          pt: 10, // Extra top padding for wave peaks
+          py: 8,
+          pt: 10,
         }}
       >
         <Box
@@ -60,7 +60,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             sx={{ display: "flex" }}
           >
-            <FacebookIcon sx={{ fontSize: 25, color: "#1877F2" }} />
+            <FacebookIcon sx={{ fontSize: 27, color: "#1877F2" }} />
           </Link>
           <Link
             href="https://instagram.com"
@@ -68,7 +68,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             sx={{ display: "flex" }}
           >
-            <InstagramIcon sx={{ fontSize: 25, color: "#E1306C" }} />
+            <InstagramIcon sx={{ fontSize: 27, color: "#E1306C" }} />
           </Link>
           <Link
             href="https://www.linkedin.com/in/zendiary/"
@@ -76,19 +76,19 @@ const Footer = () => {
             rel="noopener noreferrer"
             sx={{ display: "flex" }}
           >
-            <LinkedInIcon sx={{ fontSize: 25, color: "#0A66C2" }} />
+            <LinkedInIcon sx={{ fontSize: 27, color: "#0A66C2" }} />
           </Link>
         </Box>
 
-        <Typography variant="body2" align="center" sx={{ color: "gray" }}>
-          © {new Date().getFullYear()} Zendiary | All rights reserved.
+        <Typography variant="body2" align="center" className="text-gray-500">
+          © {new Date().getFullYear()} ZenScribe | All rights reserved.
         </Typography>
         <Typography
           variant="body2"
           align="center"
           sx={{ mt: 1, color: "inherit" }}
         >
-          <Link href="/privacy" underline="hover" color="inherit">
+          <Link href="/privacy" underline="hover" className="!text-gray-600">
             Privacy
           </Link>
           {" | "}
@@ -96,12 +96,12 @@ const Footer = () => {
             href="/policy"
             target="_blank"
             underline="hover"
-            color="inherit"
+            className="!text-gray-600"
           >
             Policy
           </Link>
           {" | "}
-          <Link href="/terms" underline="hover" color="inherit">
+          <Link href="/terms" underline="hover" className="!text-gray-600">
             Terms of Service
           </Link>
         </Typography>

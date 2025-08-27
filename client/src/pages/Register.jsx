@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -6,8 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+
   const handleRegister = async (e) => {
     e.preventDefault();
+    setError("");
     const formData = new FormData(e.target);
     const name = formData.get("name");
     const email = formData.get("email");
@@ -23,14 +26,14 @@ export default function RegisterPage() {
 
       if (!res.ok) {
         console.error(data.error || "Registration failed");
-        alert(data.error || "Registration failed");
+        setError(data.error || "Registration failed");
         return;
       }
       console.log("User registered:", data);
       navigate("/dashboard");
     } catch (err) {
       console.error("Error:", err);
-      alert("Something went wrong!");
+      setError("Something went wrong!");
     }
   };
 
@@ -49,7 +52,7 @@ export default function RegisterPage() {
       ></div>
       <motion.div
         className="relative z-10 h-[40rem] bg-gradient-to-br from-teal-600/30 via-green-700/50 to-white
- shadow-lg border border-teal-600 shadow-black rounded-[2rem] p-6 m-8 w-full max-w-xs sm:max-w-sm"
+                   shadow-lg border border-teal-600 shadow-black rounded-[2rem] p-6 m-8 w-full max-w-xs sm:max-w-sm"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: [0.1, 1.2, 0.95, 1] }}
         transition={{
@@ -63,6 +66,7 @@ export default function RegisterPage() {
         </h1>
 
         <form onSubmit={handleRegister} className="gap-4 flex flex-col">
+          {error && <p className="text-red-600 text-sm text-center">{error}</p>}
           <div>
             <label className="block text-sm font-medium text-black font-serif">
               Full Name

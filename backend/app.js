@@ -1,22 +1,20 @@
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
-
 const express = require("express");
 const app = express();
+const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const userRoutes = require("./routes/user");
-const entryRoutes = require("./routes/entry");
-const authRoutes = require("./routes/auth");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const MongoStore = require("connect-mongo");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const path = require("path");
-
 const User = require("./models/user");
+const userRoutes = require("./routes/user");
+const entryRoutes = require("./routes/entry");
+const authRoutes = require("./routes/auth");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -86,8 +84,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(session(sessionOption));
-// app.use(flash());
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(
@@ -110,30 +106,22 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        // 1. Check if a user with this googleId exists
-        let user = await User.findOne({ googleId: profile.id });
-
+        let user = await User.findOne({ googleId: profile.id }); //Checking googleId exists?
         if (!user) {
-          // 2. Check if a user with this email exists (registered via Local)
-          user = await User.findOne({ email: profile.emails[0].value });
-
+          user = await User.findOne({ email: profile.emails[0].value }); //Checking user email exists?
           if (user) {
-            // 3. Link Google account to existing user
-            user.googleId = profile.id;
+            user.googleId = profile.id; //Linking Google account to existing user
             await user.save();
           } else {
-            // 4. Create new user
             user = await User.create({
               googleId: profile.id,
               name: profile.displayName,
               email: profile.emails[0].value,
               username: profile.displayName,
-            });
+            }); //Creating new user
           }
         }
-
-        // Finish authentication
-        done(null, user);
+        done(null, user); //Finishing authentication
       } catch (err) {
         done(err, null);
       }
@@ -168,6 +156,6 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ error: err.message });
 });
 
-app.listen(PORT || 8080, () => {
+app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
 });

@@ -26,11 +26,6 @@ router.get(
       process.env.NODE_ENV === "production"
         ? "https://my-diary-app-zenscribe.onrender.com"
         : "http://localhost:5173";
-
-    console.log(
-      "✅ Google login successful, redirecting to:",
-      clientUrl + "/dashboard"
-    );
     res.redirect(`${clientUrl}/dashboard`);
   }
 );

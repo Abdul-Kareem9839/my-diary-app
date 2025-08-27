@@ -21,15 +21,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
+const registerLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 15,
+  message: "Too many accounts created, try again after an hour.",
+});
+const loginLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
   max: 100,
-  standardHeaders: true,
-  legacyHeaders: false,
+  message: "Too many login attempts, try again later.",
+});
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 150,
   message: "Too many requests, please try again later.",
 });
-
-app.use(limiter);
 
 app.use((req, res, next) => {
   if (req.method !== "OPTIONS") {
@@ -147,6 +153,11 @@ app.use((req, res, next) => {
   res.locals.curruser = req.user;
   next();
 });
+
+app.use("/api/register", registerLimiter);
+app.use("/api/login", loginLimiter);
+app.use("/api/auth/google", signinLimiter);
+app.use("/api", apiLimiter);
 
 app.use("/api", userRoutes);
 app.use("/api", entryRoutes);

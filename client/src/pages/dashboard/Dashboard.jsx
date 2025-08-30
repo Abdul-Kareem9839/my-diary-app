@@ -27,7 +27,6 @@ const Dashboard = () => {
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
-  // entries + current user
   useEffect(() => {
     const fetchEntriesAndUser = async () => {
       try {

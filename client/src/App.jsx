@@ -25,7 +25,6 @@ function App() {
           flexDirection: "column",
         }}
       >
-        {/* <Navbar /> */}
         <main
           style={{
             flex: 1,

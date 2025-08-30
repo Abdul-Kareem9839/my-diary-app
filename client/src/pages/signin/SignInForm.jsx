@@ -75,7 +75,6 @@ export default function SignInForm({ onSignIn, navigate }) {
         </button>
       </form>
 
-      {/* Social Login */}
       <div className="flex items-center my-6">
         <div className="flex-grow border-t border-black"></div>
         <span className="mx-3 text-black text-xs sm:text-sm">

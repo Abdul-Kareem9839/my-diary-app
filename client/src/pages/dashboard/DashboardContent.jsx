@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import StyleIcon from "@mui/icons-material/Style";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import SideBar from "./SideBar";
+import SideBar from "./sidebar/SideBar";
 import TopBar from "./TopBar";
 import Calendar from "react-calendar";
 import DrawIcon from "@mui/icons-material/Draw";

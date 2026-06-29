@@ -15,7 +15,6 @@ const Footer = () => {
         background: "#fff",
       }}
     >
-      {/* SVG Wave Background - Exact as provided */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
@@ -71,7 +70,7 @@ const Footer = () => {
             <InstagramIcon sx={{ fontSize: 27, color: "#E1306C" }} />
           </Link>
           <Link
-            href="https://www.linkedin.com/in/zendiary/"
+            href="https://www.linkedin.com/in/"
             target="_blank"
             rel="noopener noreferrer"
             sx={{ display: "flex" }}

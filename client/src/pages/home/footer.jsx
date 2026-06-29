@@ -70,7 +70,7 @@ const Footer = () => {
             <InstagramIcon sx={{ fontSize: 27, color: "#E1306C" }} />
           </Link>
           <Link
-            href="https://www.linkedin.com/in/"
+            href="https://linkedin.com/in/abdul-kareem786"
             target="_blank"
             rel="noopener noreferrer"
             sx={{ display: "flex" }}
